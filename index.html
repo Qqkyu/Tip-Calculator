@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Tip calculator</title>
+        <meta name="description" content="Tip calculator">
+
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+        
+        <script src="https://kit.fontawesome.com/a76bc73d14.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="assets/css/calculator.css">
+        <link rel="stylesheet" href="assets/css/transbox.css">
+        <link rel="stylesheet" href="assets/css/input.css">
+    </head>
+    <body>
+        <h1 id="title">Tip calculator</h1>
+        <p id="description">Calculate tip quickly and easily</p>
+        <div class="transbox">
+            <form id="survey-form" action="#">
+                <div class="transbox-field">
+                    <label for="bill">How much was your bill?</label>
+                    <div class="input-container">
+                        <i class="fas fa-money-bill-wave icon fa-2x"></i>
+                        <input type="number" id="bill" min="0" placeholder="Bill amount" class="input-field">
+                    </div>
+                </div>
+                <div class="transbox-field">
+                    <label for="service">
+                        How was your service? 
+                        <i style="font-family: 'Open Sans Condensed', sans-serif; font-size: 25px;">(optional)</i>
+                    </label>
+                    <div class="input-container">
+                        <i class="fas fa-star icon fa-2x"></i>
+                        <select name="service" id="service-quality" class="input-field" onchange="displayOptionInfo(this)">
+                            <option value="" disabled selected>Quality of service</option>
+                            <option value="very-poor">Very poor</option>
+                            <option value="poor">Poor</option>
+                            <option value="average">Average</option>
+                            <option value="good">Good</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="outstanding">Outstanding</option>
+                            <option value="relative">Relative</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="transbox-field-desc" id="option-desc">
+                    <i class="far fa-angry desc-icon fa-2x" id="cur-opt-icon"></i>
+                    <p style="color: white; margin-left: 20px;" id="val-desc"></p>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script src="assets/js/calculator.js"></script>
+</html>

@@ -1,0 +1,46 @@
+.transbox {
+    width: 450px;
+    height: 80%;
+    margin: 0;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-40%, -40%);
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    opacity: 0.7;
+}
+
+.transbox-field {
+    padding: 5% 5% 0px 5%; 
+    text-align: left;
+}
+
+.transbox-field-desc {
+    padding: 0 5% 0px 5%; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transbox label {
+    font-family: 'Ubuntu';
+    font-size: 30px;
+    color: #fff;
+}
+
+.transbox input {
+    font-weight: normal;
+    font-family: 'Ubuntu';
+    font-size: 20px;
+    width: 100%;
+    min-width: 0; /* Fixes a bug with input overflowing container on firefox */
+}
+
+.transbox select {
+    font-weight: normal;
+    font-family: 'Ubuntu';
+    font-size: 20px;
+    width: 100%;
+}

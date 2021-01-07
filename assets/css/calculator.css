@@ -1,0 +1,37 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    min-height: 600px;
+    background-image: url("https://cdn.pixabay.com/photo/2015/12/01/15/43/black-1072366_960_720.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+#description {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 23px;
+    color: #fff;
+}
+
+.desc-icon {
+    background: black;
+    color: white;
+}
+
+#option-desc {
+    font-family: 'Ubuntu';
+    font-size: 30px;
+    color: #fff;
+
+    display: none;
+    align-items: center;
+}
