@@ -33,7 +33,10 @@ function addCurrentDescriptionIconClass(value) {
 }
 
 function displayOptionInfo(obj) {
-    document.getElementById("option-desc").style.display = "flex";
+    let descDiv = document.getElementById("option-desc");
+    if(descDiv.style.display === "none") {
+        descDiv.style.display = "flex";
+    }
     // Select values with tip rates.
     let tipRates = new Map([
         ["very-poor", "Very poor: 0-10%"], ["poor", "Poor: 10-15%"], 
