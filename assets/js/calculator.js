@@ -33,10 +33,6 @@ function addCurrentDescriptionIconClass(value) {
 }
 
 function displayOptionInfo(obj) {
-    let descDiv = document.getElementById("option-desc");
-    if(descDiv.style.display === "none") {
-        descDiv.style.display = "flex";
-    }
     // Select values with tip rates.
     let tipRates = new Map([
         ["very-poor", "Very poor: 0-10%"], ["poor", "Poor: 10-15%"], 
@@ -44,10 +40,31 @@ function displayOptionInfo(obj) {
         ["excellent", "Excellent: 25-30%"], ["outstanding", "Outstanding: 30-35%"],
         ["relative", "Relative: 35%+"]
     ]);
+
+    let descDiv = document.getElementById("option-desc");
     // Change description based on current select option.
     let value = obj.value;
-    document.getElementById("val-desc").innerHTML = tipRates.get(value);
-    // Change icon accordingly.
-    removeCurrentDescriptionIconClass();
-    addCurrentDescriptionIconClass(value);
+    // First selection - change display and don't fade out.
+    if(descDiv.style.display === "none") {
+        descDiv.style.display = "flex";
+        setTimeout(function() {
+            document.getElementById("val-desc").innerHTML = tipRates.get(value);
+            // Change icon accordingly.
+            removeCurrentDescriptionIconClass();
+            addCurrentDescriptionIconClass(value);
+            descDiv.style.opacity = 1;
+        }, 500);
+    }
+    else {
+        // Fade out.
+        descDiv.style.opacity = 0;
+        // Wait for the transition.
+        setTimeout(function() {
+            document.getElementById("val-desc").innerHTML = tipRates.get(value);
+            // Change icon accordingly.
+            removeCurrentDescriptionIconClass();
+            addCurrentDescriptionIconClass(value);
+            descDiv.style.opacity = 1;
+        }, 1000);
+    }
 }
