@@ -19,47 +19,60 @@
         <h1 id="title">Tip calculator</h1>
         <p id="description">Calculate tip quickly and easily</p>
         <div class="transbox">
-            <form id="survey-form" action="#">
-                <div class="transbox-field">
-                    <label for="bill">How much was your bill?</label>
-                    <div class="input-container">
-                        <i class="fas fa-money-bill-wave icon fa-2x"></i>
-                        <input type="number" id="bill" min="0" placeholder="Bill amount" class="input-field">
-                    </div>
+            <div class="transbox-field">
+                <label for="bill">How much was your bill?</label>
+                <div class="input-container">
+                    <i class="fas fa-money-bill-wave icon fa-2x"></i>
+                    <!--
+                        Todo:
+                        Add dollar sign in the input field.
+                    -->
+                    <input type="number" id="bill" min="0" value="0" class="input-field">
                 </div>
-                <div class="transbox-field">
-                    <label for="service">
-                        How was your service? 
-                        <i style="font-family: 'Open Sans Condensed', sans-serif; font-size: 25px;">(optional)</i>
-                    </label>
-                    <div class="input-container">
-                        <i class="fas fa-star icon fa-2x"></i>
-                        <select name="service" id="service-quality" class="input-field" onchange="displayOptionInfo(this)">
-                            <option value="" disabled selected>Quality of service</option>
-                            <option value="very-poor">Very poor</option>
-                            <option value="poor">Poor</option>
-                            <option value="average">Average</option>
-                            <option value="good">Good</option>
-                            <option value="excellent">Excellent</option>
-                            <option value="outstanding">Outstanding</option>
-                            <option value="relative">Relative</option>
-                        </select>
-                    </div>
+            </div>
+            <div class="transbox-field">
+                <label for="service">
+                    How was your service? 
+                    <i style="font-family: 'Open Sans Condensed', sans-serif; font-size: 25px;">(optional)</i>
+                </label>
+                <div class="input-container">
+                    <i class="fas fa-star icon fa-2x"></i>
+                    <select name="service" id="service-quality" class="input-field" onchange="displayOptionInfo(this)">
+                        <option value="" disabled selected>Quality of service</option>
+                        <option value="very-poor">Very poor</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="outstanding">Outstanding</option>
+                        <option value="relative">Relative</option>
+                    </select>
                 </div>
-                <!--Set display here for easier check in js.-->
-                <div class="transbox-field-desc" id="option-desc" style="display: none;">
-                    <i class="far fa-angry desc-icon fa-2x" id="cur-opt-icon"></i>
-                    <p style="color: white; margin-left: 20px;" id="val-desc"></p>
+            </div>
+            <!--Set display here for easier check in js.-->
+            <div class="transbox-field-desc" id="option-desc" style="display: none;">
+                <i class="far fa-angry desc-icon fa-2x" id="cur-opt-icon"></i>
+                <p style="color: white; margin-left: 20px;" id="val-desc"></p>
+            </div>
+            <div class="transbox-field">
+                <label for="bill">Tip %</label>
+                <div class="input-container">
+                    <i class="fas fa-funnel-dollar icon fa-2x"></i>
+                    <!--
+                        Todo:
+                        Add percent sign in the input field.
+                    -->
+                    <input type="number" id="bill" min="0" value="0" class="input-field">
                 </div>
-                <div class="transbox-field">
-                    <label for="bill">How many people are sharing the bill?</label>
-                    <div class="input-container">
-                        <i class="fas fa-users icon fa-2x"></i>
-                        <input type="number" id="people" min="1" class="input-field" value="1">
-                    </div>
+            </div>
+            <div class="transbox-field">
+                <label for="bill">How many people are sharing the bill?</label>
+                <div class="input-container">
+                    <i class="fas fa-users icon fa-2x"></i>
+                    <input type="number" id="people" min="1" class="input-field" value="1">
                 </div>
-            </form>
+            </div>
         </div>
     </body>
-    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/tipRateDescription.js"></script>
 </html>
