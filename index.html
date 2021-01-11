@@ -23,12 +23,8 @@
                 <label for="bill">How much was your bill?</label>
                 <div class="input-container">
                     <i class="fas fa-money-bill-wave icon fa-2x"></i>
-                    <!--
-                        Todo:
-                        Add dollar sign in the input field.
-                    -->
                     <div class="input-sign">
-                        <input type="number" id="bill" min="0" value="0" class="input-field">
+                        <input type="number" id="billInput" placeholder="Bill amount" class="input-field" onblur="checkBillInput()" oninput="calculateTip()">
                         <i>$</i>
                     </div>
                 </div>
@@ -61,24 +57,22 @@
                 <label for="bill">Tip %</label>
                 <div class="input-container">
                     <i class="fas fa-funnel-dollar icon fa-2x"></i>
-                    <!--
-                        Todo:
-                        Add percent sign in the input field.
-                    -->
-                    <div class="input-sign input-sign-right">
-                        <input type="number" id="bill" min="0" value="0" class="input-field">
-                        <i>&nbsp;%</i>
-                    </div>
+                    <input type="text" id="tipRate" placeholder="Tip rate" class="input-field" onclick="removePercent()" onblur="checkTipRateInput()" oninput="calculateTip()">
                 </div>
             </div>
             <div class="transbox-field">
                 <label for="bill">How many people are sharing the bill?</label>
                 <div class="input-container">
                     <i class="fas fa-users icon fa-2x"></i>
-                    <input type="number" id="people" min="1" class="input-field" value="1">
+                    <input type="number" id="peopleAmount" class="input-field" placeholder="Amount of people" onblur="checkPeopleAmount()" oninput="calculateTip()">
                 </div>
+            </div>
+            <div class="transbox-field">
+                <!-- .. -->
             </div>
         </div>
     </body>
     <script src="assets/js/tipRateDescription.js"></script>
+    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/input.js"></script>
 </html>

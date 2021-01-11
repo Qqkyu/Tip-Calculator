@@ -1,5 +1,5 @@
 .transbox {
-    width: 450px;
+    width: 431px;
     height: 80%;
     margin: 0;
     position: relative;
@@ -13,7 +13,7 @@
 
 .transbox-field {
     padding: 5% 5% 0px 5%; 
-    text-align: left;
+    text-align: center;
 }
 
 .transbox-field-desc {
