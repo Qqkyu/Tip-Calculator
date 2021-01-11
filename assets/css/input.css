@@ -26,8 +26,44 @@ input[type=number] {
     width: 100%;
     padding: 10px;
     outline: none;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 input.input-field:focus  {
     border: 2px solid grey;
+}
+
+.input-sign {
+    position: relative;
+}
+
+.input-sign > i {
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 50%;
+    pointer-events: none;
+    width: 25px;
+    text-align: center;
+    font-style: normal;
+    font-size: 22px;
+}
+
+.input-sign > input {
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+.input-sign-right > i {
+    width: 30px;
+    right: 0;
+}
+  
+.input-sign-right > input {
+    padding-left: 5px;
+    padding-right: 25px;
+    text-align: right;
 }
