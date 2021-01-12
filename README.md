@@ -5,4 +5,4 @@ Site calculates tip and total bill based on user input, in particular bill, tip 
 User can check standard tip rates and split the bill evenly between all people. 
 
 ## Link
-
+https://qqkyu.github.io/Tip-Calculator/
