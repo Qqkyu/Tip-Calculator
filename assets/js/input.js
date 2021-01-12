@@ -2,7 +2,12 @@ function checkBillInput() {
     let bill = document.getElementById("billInput");
     const regex = /^\d+$/;
     if(!(regex.test(bill.value)) || bill.value < 0) {
-        bill.value = "";
+        if(bill.value.charAt(0) === '+') {
+            bill.value = bill.value.slice(1, bill.value.length);
+        }
+        else {
+            bill.value = "";
+        }
     }
 }
 
@@ -17,11 +22,14 @@ function removePercent() {
 function checkTipRateInput() {
     let tipRate = document.getElementById("tipRate");
     const regex = /^\d+$/;
-    if(!regex.test(tipRate.value)) {
-        tipRate.value = "";
-    }
-    else if(tipRate.value < 0 || tipRate.value > 100 || tipRate.value.length === 0) {
-        tipRate.value = "";
+    const tip = tipRate.value;
+    if(!regex.test(tip) || tip < 0 || tip > 100 || tip.length === 0) {
+        if(tip.charAt(0) === '+') {
+            tipRate.value = tip.slice(1, tip.length) + '%';
+        }
+        else {
+            tipRate.value = ""; 
+        }
     }
     else {
         tipRate.value += "%";
@@ -30,7 +38,8 @@ function checkTipRateInput() {
 
 function checkPeopleAmount() {
     let people = document.getElementById("peopleAmount");
-    if(people.value <= 0) {
+    const regex = /^\d+$/;
+    if(!regex.test(people.value) || people.value <= 0) {
         people.value = "";
     }
 }

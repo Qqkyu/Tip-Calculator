@@ -24,7 +24,7 @@
                 <div class="input-container">
                     <i class="fas fa-money-bill-wave icon fa-2x"></i>
                     <div class="input-sign">
-                        <input type="number" id="billInput" placeholder="Bill amount" class="input-field" onblur="checkBillInput()" oninput="calculateTip()">
+                        <input type="text" id="billInput" placeholder="Bill amount" class="input-field" onblur="checkBillInput();calculateTip();">
                         <i>$</i>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             <div class="transbox-field">
                 <label for="service">
                     How was your service? 
-                    <i style="font-family: 'Open Sans Condensed', sans-serif; font-size: 25px;">(optional)</i>
+                    <i class="sub-text">(optional)</i>
                 </label>
                 <div class="input-container">
                     <i class="fas fa-star icon fa-2x"></i>
@@ -57,18 +57,23 @@
                 <label for="bill">Tip %</label>
                 <div class="input-container">
                     <i class="fas fa-funnel-dollar icon fa-2x"></i>
-                    <input type="text" id="tipRate" placeholder="Tip rate" class="input-field" onclick="removePercent()" onblur="checkTipRateInput()" oninput="calculateTip()">
+                    <input type="text" id="tipRate" placeholder="Tip rate" class="input-field" onclick="removePercent()" onblur="checkTipRateInput();calculateTip();">
                 </div>
             </div>
             <div class="transbox-field">
                 <label for="bill">How many people are sharing the bill?</label>
                 <div class="input-container">
                     <i class="fas fa-users icon fa-2x"></i>
-                    <input type="number" id="peopleAmount" class="input-field" placeholder="Amount of people" onblur="checkPeopleAmount()" oninput="calculateTip()">
+                    <input type="text" id="peopleAmount" class="input-field" placeholder="Amount of people" onblur="checkPeopleAmount();calculateTip();">
                 </div>
             </div>
-            <div class="transbox-field">
-                <!-- .. -->
+            <div class="transbox-field calculator" id="blankInput" style="display: block;">
+                <p>Please input your data</p>
+            </div>
+            <div class="transbox-field calculator" id="result" style="display: none;">
+                <p id="totalTip"></p>
+                <p id="totalBill"></p>
+                <p><i class="sub-text" id="perPersonInfo" style="display: none;"> (per person)</i></p>
             </div>
         </div>
     </body>

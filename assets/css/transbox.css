@@ -1,6 +1,7 @@
 .transbox {
     width: 431px;
     height: 80%;
+    max-height: 800px;
     margin: 0;
     position: relative;
     top: 40%;
@@ -43,4 +44,10 @@
     font-family: 'Ubuntu';
     font-size: 20px;
     width: 100%;
+}
+
+.sub-text {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 25px; 
+    white-space: nowrap;
 }
