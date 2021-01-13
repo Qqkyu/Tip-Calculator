@@ -27,7 +27,7 @@ function calculateTip() {
         // Display result.
         if(people === 1) {
             document.getElementById("totalTip").innerHTML = `Tip: ${percentage(tipRate, bill)}$`;
-            document.getElementById("totalBill").innerHTML = `Total (bill + tip): ${bill + parseFloat(percentage(tipRate, bill))}$`;
+            document.getElementById("totalBill").innerHTML = `Total (bill + tip): ${(bill + parseFloat(percentage(tipRate, bill))).toFixed(2)}$`;
             document.getElementById("perPersonInfo").style.display = "none";
         }
         else {
