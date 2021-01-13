@@ -1,6 +1,6 @@
 function checkBillInput() {
     let bill = document.getElementById("billInput");
-    const regex = /^\d+$/;
+    const regex = /^\d+(\.\d\d)?$/;
     if(!(regex.test(bill.value)) || bill.value < 0) {
         if(bill.value.charAt(0) === '+') {
             bill.value = bill.value.slice(1, bill.value.length);

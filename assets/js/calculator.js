@@ -21,7 +21,7 @@ function calculateTip() {
         blankInputInfo.style.display = "none";
         result.style.display = "block";
         // Get values.
-        let bill = parseInt(document.getElementById("billInput").value);
+        let bill = parseFloat(document.getElementById("billInput").value);
         let tipRate = parseInt(document.getElementById("tipRate").value);
         let people = parseInt(document.getElementById("peopleAmount").value);
         // Display result.
