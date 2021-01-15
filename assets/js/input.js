@@ -37,18 +37,21 @@ function removePercent() {
 
 function checkTipRateInput() {
     let tipRate = document.getElementById("tipRate");
-    const regex = /^\d+$/;
-    const tip = tipRate.value;
-    if(!regex.test(tip) || tip < 0 || tip > 100 || tip.length === 0) {
-        if(tip.charAt(0) === '+') {
-            tipRate.value = tip.slice(1, tip.length) + '%';
-        }
-        else {
-            tipRate.value = ""; 
-        }
+    const regex = /^\+?(-?\d+)%*?/;
+    let found = tipRate.value.match(regex);
+    // Check whether input is valid.
+    if(!found || found[1].length === 0) {
+        console.log(found[1]);
+        tipRate.value = ""; 
+    }
+    else if(found[1] < 0) {
+        tipRate.value = "0%";
+    }
+    else if(found[1] > 100) {
+        tipRate.value = "100%";
     }
     else {
-        tipRate.value += "%";
+        tipRate.value = found[1] + "%";
     }
 }
 
