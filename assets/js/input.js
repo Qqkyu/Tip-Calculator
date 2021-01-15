@@ -1,12 +1,28 @@
 function checkBillInput() {
     let bill = document.getElementById("billInput");
-    const regex = /^\d+(\.\d\d)?$/;
-    if(!(regex.test(bill.value)) || bill.value < 0) {
-        if(bill.value.charAt(0) === '+') {
-            bill.value = bill.value.slice(1, bill.value.length);
+    const regex = /(^\+?\d+\.?)(\d*)$/;
+    let found = bill.value.match(regex);
+    // Check whether input is valid.
+    if(!found || bill.value < 0) {
+        bill.value = "";
+    }
+    else {
+        if(found[1][found[1].length - 1] === ".") {
+            // Decimal point - adjust accordingly.
+            const decimalPointNums = found[2].length;
+            if(decimalPointNums === 0) {
+                bill.value = found[1] + "00";
+            }
+            else if(decimalPointNums === 1) {
+                bill.value = found[1] + found[2] + "0";
+            }
+            else {
+                bill.value = found[1] + found[2].slice(0, 2);
+            }
         }
-        else {
-            bill.value = "";
+        if(bill.value.charAt(0) === '+') {
+            // Remove unnecessary plus sign.
+            bill.value = bill.value.slice(1, bill.value.length);
         }
     }
 }
