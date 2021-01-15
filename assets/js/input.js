@@ -1,29 +1,27 @@
 function checkBillInput() {
     let bill = document.getElementById("billInput");
-    const regex = /(^\+?\d+\.?)(\d*)$/;
+    // Get rid of + sign and 0s at the beginning.
+    const regex = /^\+?0*(\d+\.?)(\d*)$/;   // Capture integer-part and fractional-part separately.
     let found = bill.value.match(regex);
     // Check whether input is valid.
     if(!found || bill.value < 0) {
         bill.value = "";
     }
+    else if(found[1][found[1].length - 1] === ".") {
+        // Decimal point - adjust accordingly.
+        const decimalPointNums = found[2].length;
+        if(decimalPointNums === 0) {
+            bill.value = found[1] + "00";
+        }
+        else if(decimalPointNums === 1) {
+            bill.value = found[1] + found[2] + "0";
+        }
+        else {
+            bill.value = found[1] + found[2].slice(0, 2);
+        }
+    }
     else {
-        if(found[1][found[1].length - 1] === ".") {
-            // Decimal point - adjust accordingly.
-            const decimalPointNums = found[2].length;
-            if(decimalPointNums === 0) {
-                bill.value = found[1] + "00";
-            }
-            else if(decimalPointNums === 1) {
-                bill.value = found[1] + found[2] + "0";
-            }
-            else {
-                bill.value = found[1] + found[2].slice(0, 2);
-            }
-        }
-        if(bill.value.charAt(0) === '+') {
-            // Remove unnecessary plus sign.
-            bill.value = bill.value.slice(1, bill.value.length);
-        }
+        bill.value = found[1];
     }
 }
 
@@ -37,11 +35,11 @@ function removePercent() {
 
 function checkTipRateInput() {
     let tipRate = document.getElementById("tipRate");
-    const regex = /^\+?(-?\d+)%*?/;
+    // Get rid of + sign and 0s at the beginning.
+    const regex = /^\+?(-?0*(\d+))%*?/;
     let found = tipRate.value.match(regex);
     // Check whether input is valid.
-    if(!found || found[1].length === 0) {
-        console.log(found[1]);
+    if(!found || found[2].length === 0) {
         tipRate.value = ""; 
     }
     else if(found[1] < 0) {
@@ -51,7 +49,7 @@ function checkTipRateInput() {
         tipRate.value = "100%";
     }
     else {
-        tipRate.value = found[1] + "%";
+        tipRate.value = found[2] + "%";
     }
 }
 
