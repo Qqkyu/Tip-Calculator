@@ -16,8 +16,10 @@ function checkBillInput() {
     let found = bill.value.match(regex);
     // Check whether input is valid.
     if(!found || bill.value < 0) {
+        if(bill.value.length !== 0) {   // Don't show snackbar on click without input.
+            showSnackbar("Incorrect bill value");
+        }
         bill.value = "";
-        showSnackbar("Incorrect bill value");
     }
     else if(found[1][found[1].length - 1] === ".") {
         // Decimal point - adjust accordingly.
@@ -52,8 +54,10 @@ function checkTipRateInput() {
     let found = tipRate.value.match(regex);
     // Check whether input is valid.
     if(!found || found[2].length === 0) {
+        if(tipRate.value.length !== 0) {   // Don't show snackbar on click without input.
+            showSnackbar("Incorrect tip rate");
+        }
         tipRate.value = ""; 
-        showSnackbar("Incorrect tip rate");
     }
     else if(found[1] < 0) {
         tipRate.value = "0%";
@@ -70,7 +74,9 @@ function checkPeopleAmount() {
     let people = document.getElementById("peopleAmount");
     const regex = /^\d+$/;
     if(!regex.test(people.value) || people.value <= 0) {
+        if(people.value.length !== 0) {   // Don't show snackbar on click without input.
+            showSnackbar("Incorrect people amount");
+        }
         people.value = "";
-        showSnackbar("Incorrect people amount");
     }
 }
