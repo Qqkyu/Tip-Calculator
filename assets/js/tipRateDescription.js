@@ -38,7 +38,7 @@ function displayOptionInfo(obj) {
     // First selection - change display and set lower timeout value.
     if(descDiv.style.display === "none") {
         descDiv.style.display = "flex";
-        timeout = 500;
+        timeout = 0;
     }
     // Fade out.
     descDiv.style.opacity = 0;
